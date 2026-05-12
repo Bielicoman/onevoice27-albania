@@ -280,8 +280,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerText = originalText;
                 btn.disabled = false;
                 form.reset();
+                // Reset custom select
+                const triggerSpan = document.querySelector('.select-trigger span');
+                if(triggerSpan) triggerSpan.setAttribute('data-i18n', 'form_city_select');
+                setLanguage(localStorage.getItem('preferredLang') || 'sq');
             }, 1500);
         });
     });
+
+    // 6. CUSTOM SELECT LOGIC
+    const customSelect = document.getElementById('city-select');
+    if (customSelect) {
+        const trigger = customSelect.querySelector('.select-trigger');
+        const options = customSelect.querySelectorAll('.option');
+        const hiddenInput = document.getElementById('selected-city');
+        const triggerText = trigger.querySelector('span');
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            customSelect.classList.toggle('open');
+        });
+
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const value = opt.getAttribute('data-value');
+                const i18nKey = opt.getAttribute('data-i18n');
+                const text = opt.innerText;
+                
+                triggerText.innerText = text;
+                triggerText.setAttribute('data-i18n', i18nKey); // Update i18n key for trigger
+                hiddenInput.value = value;
+                customSelect.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            customSelect.classList.remove('open');
+        });
+    }
 
 });

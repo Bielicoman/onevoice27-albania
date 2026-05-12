@@ -145,13 +145,19 @@
           <input type="text" placeholder="Emri juaj" data-i18n-placeholder="form_name" required>
           <input type="email" placeholder="Email" data-i18n-placeholder="form_email" required>
           <input type="tel" placeholder="WhatsApp / Telefon" data-i18n-placeholder="form_phone" required>
-          <select>
-            <option value="" data-i18n="form_city_select">Zgjidhni qytetin tuaj</option>
-            <option value="tirana" data-i18n="city_tirana">Tiranë</option>
-            <option value="durres" data-i18n="city_durres">Durrës</option>
-            <option value="vlora" data-i18n="city_vlora">Vlorë</option>
-            <option value="shkoder" data-i18n="city_shkoder">Shkodër</option>
-          </select>
+          <div class="custom-select" id="city-select">
+            <div class="select-trigger">
+              <span data-i18n="form_city_select">Zgjidhni qytetin tuaj</span>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="select-options">
+              <div class="option" data-value="tirana" data-i18n="city_tirana">Tiranë</div>
+              <div class="option" data-value="durres" data-i18n="city_durres">Durrës</div>
+              <div class="option" data-value="vlora" data-i18n="city_vlora">Vlorë</div>
+              <div class="option" data-value="shkoder" data-i18n="city_shkoder">Shkodër</div>
+            </div>
+            <input type="hidden" name="city" id="selected-city" required>
+          </div>
           <button type="submit" class="btn-primary" data-i18n="form_btn_send">DËRGO KËRKESËN</button>
           <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px; text-align:center;" data-i18n="form_privacy">Duke dërguar këtë formë, ju pranoni politikën tonë të privatësisë.</p>
         </form>
