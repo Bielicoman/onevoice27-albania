@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="One Voice. One Mission. One Hope. Bashkohuni me lëvizjen OneVoice27 në Shqipëri.">
+  <title>OneVoice27 Shqipëri – Një zë. Një mision. Një shpresë.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="Gallery_icon-icons.com_54177.png">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-logo" style="display:flex; align-items:center; gap:15px;">
+        <img src="LOGO NT 1.png" alt="Novo Tempo Logo" style="height:45px; width:auto;">
+        <div style="width:1px; height:30px; background:rgba(255,255,255,0.2);"></div>
+        <img src="LOGO IASD 1.png" alt="IASD Logo" style="height:35px; width:auto;">
+        <div style="display:flex; flex-direction:column; line-height:1;">
+          <span style="font-weight:900; font-size:1.2rem; color:var(--accent-deep);">OneVoice27</span>
+          <span style="font-size:0.7rem; letter-spacing:1px; color:var(--accent-gold);">SHQIPËRI</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; align-items:center;">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn" id="current-lang">SQ</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('sq')">AL (SQ)</button>
+            <button onclick="setLanguage('pt')">PT (BR)</button>
+          </div>
+        </div>
+
+        <nav style="display:flex; gap:20px;" class="desktop-nav">
+          <a href="#projekti" style="font-weight:600; font-size:0.9rem;" data-i18n="nav_project">PROJEKTI</a>
+          <a href="#shqiperia" style="font-weight:600; font-size:0.9rem;" data-i18n="nav_albania">SHQIPËRIA</a>
+          <a href="#bibla" style="font-weight:600; font-size:0.9rem;" data-i18n="nav_bible">STUDIO BIBLËN</a>
+        </nav>
+        <button class="header-cta" data-i18n="cta_participate">Merrni pjesë</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-right"></div>
+    <div class="hero-bg-symbol">27</div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <span style="color:var(--accent-gold); font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:0.9rem; display:block; margin-bottom:12px;" data-i18n="hero_tag">Shtator 2027 • Shqipëri</span>
+        <h1 data-i18n="hero_title">Një zë. Një mision. Një shpresë.</h1>
+        <p data-i18n="hero_desc">Bashkohuni me ne në këtë lëvizje globale për të ndarë shpresën e Krishtit në çdo cep të Shqipërisë.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="#pjesemarres" class="btn-primary" data-i18n="btn_participate">DUA TË MARR PJESË</a>
+          <a href="#bibla" class="btn-outline" data-i18n="btn_study">STUDIO BIBLËN</a>
+        </div>
+        
+        <!-- Countdown Container -->
+        <div id="countdown" class="countdown-container">
+            <div class="countdown-item"><span id="days">00</span><small data-i18n="days_label">DITË</small></div>
+            <div class="countdown-item"><span id="hours">00</span><small data-i18n="hours_label">ORË</small></div>
+            <div class="countdown-item"><span id="minutes">00</span><small data-i18n="min_label">MIN</small></div>
+        </div>
+      </div>
+      <div class="hero-image reveal" style="display:flex; justify-content:center; align-items:center;">
+        <img src="LOGO NT 1.png" alt="Novo Tempo - OneVoice27" style="max-width:80%; height:auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTI -->
+  <section class="section" id="projekti" style="padding:100px 0; background:var(--bg-secondary);">
+    <div class="container">
+      <div style="max-width:800px; margin: 0 auto; text-align:center;">
+        <h2 class="reveal" style="font-size:2.5rem; color:var(--accent-deep); margin-bottom:24px;" data-i18n="section_what_title">Çfarë është OneVoice27?</h2>
+        <p class="reveal" style="font-size:1.15rem; color:var(--text-muted); line-height:1.8;" data-i18n="section_what_desc">
+          OneVoice27 është një iniciativë globale e Kishës Adventiste për të bashkuar median, kishat lokale dhe anëtarët në një shpallje të madhe mbarëbotërore të ungjillit. Në shtator 2027, ne festojmë 2000 vjetorin e pagëzimit dhe fillimit të shërbesës së Jezusit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHQIPERIA SPECIFIC -->
+  <section class="section" id="shqiperia" style="padding:100px 0;">
+    <div class="container" style="display:flex; align-items:center; gap:60px; flex-wrap:wrap;">
+      <div class="reveal" style="flex:1; min-width:300px;">
+        <h2 style="font-size:2.2rem; color:var(--accent-deep); margin-bottom:20px;" data-i18n="albania_title">Lëvizja në Shqipëri</h2>
+        <p style="margin-bottom:24px; font-size:1.1rem;" data-i18n="albania_desc">Kisha Adventiste në Shqipëri është plotësisht e angazhuar në këtë projekt. Ne po mobilizojmë çdo kishë lokale dhe grup të vogël nga Shkodra në Sarandë.</p>
+        <ul style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+          <li style="display:flex; align-items:center; gap:10px;"><div style="width:24px;height:24px;background:var(--accent-gold);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;"><i data-lucide="check" style="width:14px; height:14px;"></i></div> Shpërndarje Mbarëkombëtare</li>
+          <li style="display:flex; align-items:center; gap:10px;"><div style="width:24px;height:24px;background:var(--accent-gold);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;"><i data-lucide="check" style="width:14px; height:14px;"></i></div> Ngjarje Lokale</li>
+          <li style="display:flex; align-items:center; gap:10px;"><div style="width:24px;height:24px;background:var(--accent-gold);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;"><i data-lucide="check" style="width:14px; height:14px;"></i></div> Përmbajtje Digjitale</li>
+          <li style="display:flex; align-items:center; gap:10px;"><div style="width:24px;height:24px;background:var(--accent-gold);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;"><i data-lucide="check" style="width:14px; height:14px;"></i></div> Mbështetje për Komunitetin</li>
+        </ul>
+      </div>
+      <div class="reveal" style="flex:1; min-width:300px; background:var(--bg-tertiary); padding:40px; border-radius:var(--radius-lg);">
+        <h3 style="margin-bottom:16px; color:var(--accent-gold);" data-i18n="albania_card_title">Gjeni një kishë pranë jush</h3>
+        <p style="margin-bottom:24px;" data-i18n="albania_card_desc">Zbuloni ku po ndodhin takimet dhe si mund të bëheni pjesë e komunitetit tonë.</p>
+        <a href="#kontakti" class="btn-primary" style="padding: 12px 24px; font-size:0.9rem;" data-i18n="albania_card_btn">SHIKO HARTËN</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATHS (MEMBERS VS VISITORS) -->
+  <section class="section" id="pjesemarres" style="padding:100px 0; background:var(--bg-secondary);">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="participate_title">Si mund të përfshiheni?</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:32px; margin-top:60px;">
+        <!-- PATH 1 -->
+        <div class="card reveal">
+          <h3 style="color:var(--accent-gold); margin-bottom:20px;" data-i18n="path_members_title">Për Anëtarët e Kishës</h3>
+          <ul style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px; color:var(--text-muted);">
+            <li data-i18n="path_members_1">• Bashkohuni në rrjetin e lutjes</li>
+            <li data-i18n="path_members_2">• Ndani përmbajtjen digjitale</li>
+            <li data-i18n="path_members_3">• Organizoni një grup të vogël</li>
+            <li data-i18n="path_members_4">• Shërbeni si vullnetar</li>
+          </ul>
+          <a href="#" class="btn-primary" style="width:100%;" data-i18n="path_members_btn">DUA TË NDIHMOJ</a>
+        </div>
+        <!-- PATH 2 -->
+        <div class="card reveal">
+          <h3 style="color:var(--accent-gold); margin-bottom:20px;" data-i18n="path_visitors_title">Për Vizitorët</h3>
+          <ul style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px; color:var(--text-muted);">
+            <li data-i18n="path_visitors_1">• Merrni studime biblike falas</li>
+            <li data-i18n="path_visitors_2">• Gjeni përgjigje për jetën</li>
+            <li data-i18n="path_visitors_3">• Merrni pjesë në ngjarjet tona</li>
+            <li data-i18n="path_visitors_4">• Kërkoni lutje</li>
+          </ul>
+          <a href="#bibla" class="btn-primary" style="width:100%;" data-i18n="path_visitors_btn">MËSONI MË SHUMË</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLE STUDY FORM -->
+  <section class="section" id="bibla" style="padding:100px 0;">
+    <div class="container" style="max-width:700px;">
+      <div class="card reveal" style="text-align:center;">
+        <h2 style="margin-bottom:16px;" data-i18n="form_bible_title">Studio Biblën</h2>
+        <p style="margin-bottom:40px; color:var(--text-muted);" data-i18n="form_bible_desc">Zbuloni mesazhin e shpresës dhe të vërtetës drejtpërdrejt nga Shkrimet e Shenjta.</p>
+        <form style="display:flex; flex-direction:column; gap:16px; text-align:left;">
+          <input type="text" placeholder="Emri juaj" data-i18n-placeholder="form_name" required>
+          <input type="email" placeholder="Email" data-i18n-placeholder="form_email" required>
+          <input type="tel" placeholder="WhatsApp / Telefon" data-i18n-placeholder="form_phone" required>
+          <select>
+            <option value="" data-i18n="form_city_select">Zgjidhni qytetin tuaj</option>
+            <option value="tirana" data-i18n="city_tirana">Tiranë</option>
+            <option value="durres" data-i18n="city_durres">Durrës</option>
+            <option value="vlora" data-i18n="city_vlora">Vlorë</option>
+            <option value="shkoder" data-i18n="city_shkoder">Shkodër</option>
+          </select>
+          <button type="submit" class="btn-primary" data-i18n="form_btn_send">DËRGO KËRKESËN</button>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px; text-align:center;" data-i18n="form_privacy">Duke dërguar këtë formë, ju pranoni politikën tonë të privatësisë.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPIRITUAL PREP -->
+  <section class="section" id="lutja" style="padding:100px 0; background:var(--bg-tertiary);">
+    <div class="container">
+      <div style="display:flex; gap:60px; align-items:center; flex-wrap:wrap;">
+        <div class="reveal" style="flex:1;">
+          <img src="Gallery_icon-icons.com_54177.png" alt="Prayer" style="width:100%; border-radius:var(--radius-lg);">
+        </div>
+        <div class="reveal" style="flex:1.2;">
+          <span style="color:var(--accent-gold); font-weight:700;" data-i18n="prayer_tag">Baza e Misionit</span>
+          <h2 style="font-size:2.2rem; margin: 12px 0 20px;" data-i18n="prayer_title">Lutja dhe Përgatitja</h2>
+          <p style="margin-bottom:24px;" data-i18n="prayer_desc">Suksesi i OneVoice27 nuk varet nga teknologjia, por nga fuqia e Zotit. Ne ftojmë çdo anëtar të lutet çdo ditë për këtë lëvizje.</p>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div class="card" style="display:flex; align-items:center; gap:16px; padding:20px;">
+              <div style="color:var(--accent-gold);"><i data-lucide="book" class="icon-animated"></i></div>
+              <div><strong data-i18n="prayer_item_1_title">Plani i Leximit:</strong> <span data-i18n="prayer_item_1_desc">Studioni librin "Dëshira e Shekujve".</span></div>
+            </div>
+            <div class="card" style="display:flex; align-items:center; gap:16px; padding:20px;">
+              <div style="color:var(--accent-blue);"><i data-lucide="heart" class="icon-animated"></i></div>
+              <div><strong data-i18n="prayer_item_2_title">Kalendari i Lutjes:</strong> <span data-i18n="prayer_item_2_desc">Lutuni për qytete specifike çdo javë.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="section" id="burimet" style="padding:100px 0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:60px;">
+        <h2 class="section-title reveal" data-i18n="resources_title">Burimet dhe Shkarkimet</h2>
+        <p class="section-desc reveal" data-i18n="resources_desc">Materiale zyrtare për kishat dhe individët.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:24px;">
+        <div class="card reveal" style="text-align:center; padding:32px;">
+          <div style="color:var(--accent-gold); margin-bottom:16px;"><i data-lucide="palette" class="icon-animated" style="width:40px; height:40px; margin: 0 auto;"></i></div>
+          <h4 style="margin-bottom:12px;" data-i18n="res_1">Logot Zyrtare</h4>
+          <a href="#" style="color:var(--accent-blue); font-weight:700; font-size:0.85rem; letter-spacing:1px;" data-i18n="res_download">SHKARKO</a>
+        </div>
+        <div class="card reveal" style="text-align:center; padding:32px;">
+          <div style="color:var(--accent-blue); margin-bottom:16px;"><i data-lucide="smartphone" class="icon-animated" style="width:40px; height:40px; margin: 0 auto;"></i></div>
+          <h4 style="margin-bottom:12px;" data-i18n="res_2">Rrjetet Sociale</h4>
+          <a href="#" style="color:var(--accent-blue); font-weight:700; font-size:0.85rem; letter-spacing:1px;" data-i18n="res_download">SHKARKO</a>
+        </div>
+        <div class="card reveal" style="text-align:center; padding:32px;">
+          <div style="color:var(--accent-gold); margin-bottom:16px;"><i data-lucide="video" class="icon-animated" style="width:40px; height:40px; margin: 0 auto;"></i></div>
+          <h4 style="margin-bottom:12px;" data-i18n="res_3">Video Promovuese</h4>
+          <a href="#" style="color:var(--accent-blue); font-weight:700; font-size:0.85rem; letter-spacing:1px;" data-i18n="res_download">SHKARKO</a>
+        </div>
+        <div class="card reveal" style="text-align:center; padding:32px;">
+          <div style="color:var(--accent-blue); margin-bottom:16px;"><i data-lucide="book-open" class="icon-animated" style="width:40px; height:40px; margin: 0 auto;"></i></div>
+          <h4 style="margin-bottom:12px;" data-i18n="res_4">Udhëzuesi i Liderit</h4>
+          <a href="#" style="color:var(--accent-blue); font-weight:700; font-size:0.85rem; letter-spacing:1px;" data-i18n="res_download">SHKARKO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="section" id="agenda" style="padding:100px 0; background:var(--bg-secondary);">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="agenda_title">Ngjarjet e Ardhshme</h2>
+      <div style="max-width:800px; margin: 0 auto; display:flex; flex-direction:column; gap:20px;">
+        <!-- EVENT 1 -->
+        <div class="card reveal" style="display:flex; gap:32px; align-items:center; padding:32px;">
+          <div style="text-align:center; min-width:100px; padding:16px; background:rgba(59, 130, 246, 0.1); border-radius:var(--radius-md);">
+            <div style="font-size:1.8rem; font-weight:900; color:var(--accent-blue);">15</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text-primary); letter-spacing:1px;" data-i18n="month_may">MAJ</div>
+          </div>
+          <div style="flex:1;">
+            <h4 style="font-size:1.25rem; margin-bottom:8px; color:var(--text-primary);" data-i18n="event_1_title">Trajnimi i Vullnetarëve Digjitalë</h4>
+            <p style="font-size:0.9rem; color:var(--text-muted);" data-i18n="event_1_desc">Tiranë & Online</p>
+          </div>
+          <a href="#" class="btn-outline" style="padding:12px 24px; font-size:0.8rem;" data-i18n="event_details">DETAJET</a>
+        </div>
+        <!-- EVENT 2 -->
+        <div class="card reveal" style="display:flex; gap:32px; align-items:center; padding:32px;">
+          <div style="text-align:center; min-width:100px; padding:16px; background:rgba(59, 130, 246, 0.1); border-radius:var(--radius-md);">
+            <div style="font-size:1.8rem; font-weight:900; color:var(--accent-blue);">01</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text-primary); letter-spacing:1px;" data-i18n="month_sep">SHT</div>
+          </div>
+          <div style="flex:1;">
+            <h4 style="font-size:1.25rem; margin-bottom:8px; color:var(--text-primary);" data-i18n="event_2_title">Fillimi i Muajit të Madh të Ungjillizimit</h4>
+            <p style="font-size:0.9rem; color:var(--text-muted);" data-i18n="event_2_desc">Mbarë Shqipëria</p>
+          </div>
+          <a href="#" class="btn-outline" style="padding:12px 24px; font-size:0.8rem;" data-i18n="event_details">DETAJET</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="kontakti" style="padding:80px 0 40px; background:var(--accent-deep); color:white; border:none;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:40px; text-align:left; margin-bottom:60px;">
+        <div>
+          <img src="LOGO IASD 2.webp" alt="IASD Shqipëri" style="height:50px; margin-bottom:20px; opacity:0.9;">
+          <h3 style="margin-bottom:10px; color:var(--accent-gold-light);" data-i18n="footer_title">OneVoice27 Shqipëri</h3>
+          <p style="color:rgba(255,255,255,0.7); font-size:0.9rem;" data-i18n="footer_desc">Një iniciativë e Kishës Adventiste të Ditës së Shtatë në Shqipëri për të ndarë dritën e Jezusit.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom:20px;" data-i18n="footer_links_title">Lidhje të Shpejta</h4>
+          <ul style="display:flex; flex-direction:column; gap:10px; font-size:0.9rem; color:rgba(255,255,255,0.7);">
+            <li><a href="#projekti" data-i18n="footer_link_1">Rreth Projektit</a></li>
+            <li><a href="#bibla" data-i18n="footer_link_2">Studime Biblike</a></li>
+            <li><a href="#burimet" data-i18n="footer_link_3">Burime</a></li>
+            <li><a href="#agenda" data-i18n="footer_link_4">Agjenda</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom:20px;" data-i18n="footer_contact_title">Kontakti</h4>
+          <p style="color:rgba(255,255,255,0.7); font-size:0.9rem; margin-bottom:10px;">Email: info@adventist.al</p>
+          <p style="color:rgba(255,255,255,0.7); font-size:0.9rem; margin-bottom:20px;">Tel: +355 4 2234 XXX</p>
+          <div style="display:flex; gap:12px;">
+            <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">FB</a>
+            <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">IG</a>
+            <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">YT</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top:40px; font-size:0.8rem; color:rgba(255,255,255,0.5);" data-i18n="footer_copy">
+        © 2025 OneVoice27 Albania | Kisha Adventiste e Ditës së Shtatë. Të gjitha të drejtat të rezervuara.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
