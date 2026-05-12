@@ -429,18 +429,39 @@ a {
 
 /* FORMS */
 input, select, textarea {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
   border: 1px solid var(--glass-border);
   color: var(--text-primary);
-  padding: 18px;
-  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
   outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
   transition: var(--transition);
 }
 
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 16px;
+}
+
+select option {
+  background: #111;
+  color: #fff;
+}
+
 input:focus, select:focus {
-  border-color: var(--accent-blue);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-gold);
+  background: var(--bg-tertiary);
+}
+
+.logo-white {
+  filter: brightness(0) invert(1);
 }
 
 /* REVEAL ANIMATION */
