@@ -461,7 +461,7 @@ input:focus, select:focus {
 }
 
 .logo-white {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1) !important;
 }
 
 /* REVEAL ANIMATION */
