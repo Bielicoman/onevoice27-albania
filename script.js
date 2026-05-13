@@ -363,31 +363,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        let lastFrame = -1;
         const render = () => {
             const index = Math.min(Math.max(Math.round(globeObj.frame) - 1, 0), frameCount - 1);
+            if (index === lastFrame) return; // Evita redesenho se o frame for o mesmo
+            
             const img = images[index];
             if (img && img.complete) {
                 context.clearRect(0, 0, canvas.width, canvas.height);
-                context.drawImage(img, 0, 0);
+                context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                lastFrame = index;
             }
         };
 
         const initGlobeAnimation = () => {
             canvas.width = 800;
             canvas.height = 800;
+            context.imageSmoothingEnabled = true;
+            context.imageSmoothingQuality = 'low'; // Ganho de performance mantendo a qualidade visual do WebP
             
             // Lenis with optimized settings
             const lenis = new Lenis({
-                lerp: 0.15, // Aumentado de 0.1 para 0.15 (mais responsivo)
+                lerp: 0.2, // Mais direto, menos "pesado"
                 smoothWheel: true,
-                wheelMultiplier: 1.0
+                wheelMultiplier: 0.9, // Reduzido levemente para evitar saltos bruscos
+                touchMultiplier: 1.5
             });
             
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => {
                 lenis.raf(time * 1000);
             });
-            gsap.ticker.lagSmoothing(0);
+            // Performance Config
+            gsap.ticker.fps(60);
+            gsap.ticker.lagSmoothing(0); // Garante que a animação não pule frames no scroll
 
             // Estado inicial: Menor para evitar pixelização, no canto superior esquerdo
             gsap.set(canvas, {
@@ -401,8 +410,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: "body",
                     start: "top top",
-                    end: "50% top",
-                    scrub: 0.8, // Reduzido de 1.5 para 0.8 (animação alcança o mouse mais rápido)
+                    end: "60% top",
+                    scrub: 0.5, // Resposta quase instantânea ao scroll
+                    invalidateOnRefresh: true
                 }
             });
 

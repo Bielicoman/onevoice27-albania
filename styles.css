@@ -103,9 +103,10 @@ a {
 .header.scrolled {
   padding: 14px 0;
   background: rgba(10, 11, 16, 0.7);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
+  transform: translateZ(0);
 }
 
 .header .container {
@@ -569,9 +570,10 @@ input:focus {
 .footer {
   padding: 100px 0 40px;
   background: rgba(5, 6, 10, 0.6);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid var(--glass-border);
+  transform: translateZ(0);
 }
 
 /* MEDIA QUERIES */
@@ -635,6 +637,7 @@ input:focus {
   z-index: -1;
   background: #000;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .globe-sticky-wrapper {
@@ -649,14 +652,17 @@ input:focus {
 }
 
 #globe-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
   width: 800px;
   height: 800px;
   max-width: none;
   max-height: none;
-  object-fit: contain;
+  pointer-events: none;
+  will-change: transform, filter, opacity;
   transform-origin: center center;
-  will-change: transform, opacity, filter;
-  filter: brightness(0.3);
 }
 
 /* Ajuste Hero para transição suave */
