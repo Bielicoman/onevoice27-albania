@@ -211,13 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 2. HEADER SCROLL EFFECT
-    const header = document.getElementById('header');
-    
+    const headerEl = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            headerEl.classList.add('scrolled');
         } else {
-            header.classList.remove('scrolled');
+            headerEl.classList.remove('scrolled');
         }
     });
 
@@ -288,7 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. CUSTOM SELECT LOGIC
+
+
+    // === LANGUAGE SELECTOR ===
     const customSelect = document.getElementById('city-select');
     if (customSelect) {
         const trigger = customSelect.querySelector('.select-trigger');
@@ -317,6 +318,115 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', () => {
             customSelect.classList.remove('open');
         });
+    }
+
+    // === GLOBO PREMIUM ANIMATION SYSTEM ===
+    const canvas = document.getElementById('globe-canvas');
+    if (canvas) {
+        const context = canvas.getContext('2d', { alpha: true });
+        const frameCount = 85;
+        const images = [];
+        const globeObj = { frame: 1 };
+        const placeholder = document.getElementById('logo-globe-container');
+        const globeScene = document.getElementById('globe-scene');
+
+        // Preload frames in batches
+        const preloadImages = async () => {
+            const firstBatch = 15;
+            // Load first batch for immediate interaction
+            for (let i = 1; i <= firstBatch; i++) {
+                await loadSingleImage(i);
+            }
+            initGlobeAnimation();
+            
+            // Load the rest in background
+            for (let i = firstBatch + 1; i <= frameCount; i++) {
+                loadSingleImage(i);
+            }
+        };
+
+        const loadSingleImage = (i) => {
+            return new Promise(resolve => {
+                const img = new Image();
+                img.src = `frames/frame_${i.toString().padStart(4, '0')}.webp`;
+                img.onload = () => {
+                    images[i - 1] = img;
+                    if (i === 1) render();
+                    resolve();
+                };
+                img.onerror = () => {
+                    console.error(`Failed to load frame ${i}`);
+                    resolve();
+                };
+            });
+        };
+
+        const render = () => {
+            const index = Math.min(Math.max(Math.round(globeObj.frame) - 1, 0), frameCount - 1);
+            const img = images[index];
+            if (img && img.complete) {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(img, 0, 0);
+            }
+        };
+
+        const initGlobeAnimation = () => {
+            canvas.width = 800;
+            canvas.height = 800;
+            
+            // Lenis with optimized settings
+            const lenis = new Lenis({
+                lerp: 0.1,
+                smoothWheel: true,
+                wheelMultiplier: 1.0
+            });
+            
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            // Estado inicial: Menor para evitar pixelização, no canto superior esquerdo
+            gsap.set(canvas, {
+                scale: 1.1, // Quase o tamanho real do frame
+                x: -window.innerWidth * 0.4,
+                y: -window.innerHeight * 0.25,
+                filter: "brightness(0.3) blur(1px)"
+            });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "50% top",
+                    scrub: 1.5,
+                }
+            });
+
+            // Transição para o centro e brilho total
+            tl.to(canvas, {
+                scale: window.innerWidth < 768 ? 0.4 : 0.65, // Bem menor para ficar nítido
+                x: 0,
+                y: 0,
+                filter: "brightness(1) blur(0px)",
+                ease: "power2.inOut"
+            }, 0);
+
+            // Progressão dos frames
+            tl.to(globeObj, {
+                frame: frameCount,
+                snap: "frame",
+                ease: "none",
+                onUpdate: render
+            }, 0);
+
+            window.addEventListener('resize', () => ScrollTrigger.refresh());
+            
+            render();
+        };
+
+        preloadImages();
     }
 
 });
