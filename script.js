@@ -339,9 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             initGlobeAnimation();
             
-            // Load the rest in background
+            // Load the rest in background with slight delay to prevent jank
             for (let i = firstBatch + 1; i <= frameCount; i++) {
-                loadSingleImage(i);
+                setTimeout(() => {
+                    loadSingleImage(i);
+                }, (i - firstBatch) * 50); // 50ms entre cada frame para suavizar o I/O
             }
         };
 
@@ -376,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Lenis with optimized settings
             const lenis = new Lenis({
-                lerp: 0.1,
+                lerp: 0.15, // Aumentado de 0.1 para 0.15 (mais responsivo)
                 smoothWheel: true,
                 wheelMultiplier: 1.0
             });
@@ -400,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: "body",
                     start: "top top",
                     end: "50% top",
-                    scrub: 1.5,
+                    scrub: 0.8, // Reduzido de 1.5 para 0.8 (animação alcança o mouse mais rápido)
                 }
             });
 
